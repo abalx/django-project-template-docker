@@ -15,3 +15,12 @@ def page_not_found(request):
 
 def server_error(request):
     return render(request, 'errors/500.html', {}, status=500)
+
+
+def home(request):
+
+    return render(request, 'home.html', {})
+
+
+def robots_txt(request):
+    return render(request, 'robots.txt', {}, content_type='text/plain')

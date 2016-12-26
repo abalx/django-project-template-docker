@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from apps.bloggg import views
+from apps.core import views
 
 
 handler400 = 'apps.core.views.bad_request'

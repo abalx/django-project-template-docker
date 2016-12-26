@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'apps.bloggg.urls'
+ROOT_URLCONF = 'apps.core.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'apps.bloggg.wsgi.application'
+WSGI_APPLICATION = 'apps.core.wsgi.application'
 
 LANGUAGE_CODE = 'ru-RU'
 
