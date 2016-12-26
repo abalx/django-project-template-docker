@@ -19,21 +19,23 @@
 
 ## Install project
 
-##### Create project:
+##### 1. Create project:
 
     django-admin.py startproject --template=https://github.com/abalx/django-project-template-docker/zipball/master --extension py,yml project_name
     
-##### Set environment
+##### 2. Set environment
 
 `cp configs/env.template configs/env`
 
 `vim configs/env`
     
-##### Run project for development
+##### 3. Run project for development
 
 `docker-compose -f docker/docker-compose.yml up`
 
-##### Run project for production
+or
+
+##### 3. Run project for production
 
 `docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up`
 
