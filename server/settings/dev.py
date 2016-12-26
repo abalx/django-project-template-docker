@@ -39,7 +39,7 @@ if DEBUG:
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/tmp/django_cache_blog',
+        'LOCATION': '/tmp/django_cache_{{ project_name }}',
     }
 }
 

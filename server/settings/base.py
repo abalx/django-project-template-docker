@@ -36,9 +36,7 @@ DATABASES = {
      }
 }
 
-ALLOWED_HOSTS = [
-
-]
+ALLOWED_HOSTS = []
 
 SITE_ID = 1
 
@@ -150,4 +148,4 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "apps.users.User"
