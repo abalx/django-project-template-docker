@@ -23,6 +23,12 @@
 
     django-admin.py startproject --template=https://github.com/abalx/django-project-template-docker/zipball/master --extension py,docker-compose.yml project_name
     
+##### Set environment
+
+`cp configs/env.template configs/env`
+
+`vim configs/env`
+    
 ##### Run project for development
 
 `docker-compose -f docker/docker-compose.yml up`
