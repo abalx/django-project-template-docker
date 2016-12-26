@@ -1,0 +1,13 @@
+.idea
+__pycache__/
+*.py[cod]
+
+var/
+
+configs/env
+
+client/node_modules/
+client/media/
+client/staticroot/
+client/build/bundle.min.css
+client/build/bundle.min.js

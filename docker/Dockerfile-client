@@ -1,0 +1,14 @@
+FROM node:6.9.1
+
+COPY client/package.json /usr/src/app/client/
+COPY client/webpack.config.js /usr/src/app/client/
+COPY client/gulpfile.js /usr/src/app/client/
+COPY client/bower.json /usr/src/app/client/
+COPY client/.bowerrc /usr/src/app/client/
+COPY docker/docker-entrypoint-client.sh /usr/src/app/docker/
+
+WORKDIR /usr/src/app/client
+
+RUN npm install gulp -g
+
+WORKDIR /usr/src/app/docker

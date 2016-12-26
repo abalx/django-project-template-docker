@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: p_db
+    env_file:
+    - ../configs/env
+    ports:
+    - "5432:5432"
+    volumes:
+    - ../var/pgdata:/var/lib/postgresql/data
+
+  client:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile-client
+    container_name: p_client
+    entrypoint:
+    - ./docker-entrypoint-client.sh
+    command: gulp --gulpfile=../client/gulpfile.js
+    env_file:
+    - ../configs/env
+    volumes:
+    - ../client/:/usr/src/app/client
+
+  server:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile-server
+    container_name: p_server
+    entrypoint:
+    - ./docker-entrypoint-server.sh
+    command: python ../server/manage.py runserver 0.0.0.0:8000
+    env_file:
+    - ../configs/env
+    volumes:
+    - ../server:/usr/src/app/server
+    - ../var/logs:/usr/src/app/var/logs
+    - ../var/mails:/usr/src/app/var/mails
+    volumes_from:
+    - client
+    ports:
+    - "8000:8000"
+    depends_on:
+    - db
+    - client
+    links:
+    - db
+
+
