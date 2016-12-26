@@ -1,31 +1,40 @@
 # django-project-template
 
 ## Requirements
+
 #### System packages
-* bash
-* python3.4+
-* nodejs 6+
+* docker
 
 #### Python packages
 * Pip
-* Django 1.10
+* docker-compose
+
+##### Install docker
+
+`wget -qO- https://get.docker.com/ | sh`
+
+##### Install docker-composee
+
+`sudo pip install docker-compose`
 
 ## Install project
-Create project:
 
-    django-admin.py startproject --template=https://github.com/abalx/django-project-template/zipball/master --extension py,.gitignore,scss,docker-compose.yml project_name
+##### Create project:
 
-Prepare project for development:
-
-    python3 prepare.py
-
-Prepare project for production:
-
-    python3 prepare.py -p
+    django-admin.py startproject --template=https://github.com/abalx/django-project-template-docker/zipball/master --extension py,docker-compose.yml project_name
     
-## Frontend
+##### Run project for development
+
+`docker-compose -f docker/docker-compose.yml up`
+
+##### Run project for production
+
+`docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up`
+
+## Client
 #### Description
-This project has separate frontend layer. It's in directory `src/frontend`.
+
+This project has separate frontend layer. It's in directory `client`.
 There're directories:
 
 * `apps` - static and templates of applications
@@ -38,37 +47,25 @@ There're directories:
 
 * `vendor` - bower applications
 
-`media` and `staticroot` will be also here.
+`media_root` and `static_root` will be also here.
 
-#### Frontend commands
-Before work with frontend run the command (being in `src/frontend`):
-    
-    npm install
-    
-Work with static (being in `src/frontend`):
+#### Client commands
 
-    gulp
+Create a new client application:
 
-Compile static for production (being in `src/frontend`). Do it on production server:
+    docker exec -it <PROJECT_NAME>_server python server/manage.py startclientapp <APPLICATION_NAME>
 
-    gulp production
+Will be created a new client app:
 
-Creating new frontend application directory:
-
-    python3 src/manage.py startfrontendapp <APPLICATION_NAME>
-
-Will be created new frontend app directory:
-
-    src/
-        frontend/
-            apps/
-                APPLICATION_NAME/
-                    static/
-                        APPLICATION_NAME/
-                            images/
-                            js/
-                                APPLICATION_NAME.js
-                            styles/
-                                APPLICATION_NAME.scss
-                    templates/
-                        APPLICATION_NAME/
+    client/
+        apps/
+            APPLICATION_NAME/
+                static/
+                    APPLICATION_NAME/
+                        images/
+                        js/
+                            APPLICATION_NAME.js
+                        styles/
+                            APPLICATION_NAME.scss
+                templates/
+                    APPLICATION_NAME/
