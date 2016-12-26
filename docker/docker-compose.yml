@@ -2,10 +2,10 @@ version: '2'
 
 services:
   db:
-    image: postgres:latest
-    container_name: p_db
     env_file:
     - ../configs/env
+    image: postgres:latest
+    container_name: {{project_name}}_db
     ports:
     - "5432:5432"
     volumes:
@@ -15,7 +15,7 @@ services:
     build:
       context: ../
       dockerfile: docker/Dockerfile-client
-    container_name: p_client
+    container_name: {{project_name}}_client
     entrypoint:
     - ./docker-entrypoint-client.sh
     command: gulp --gulpfile=../client/gulpfile.js
@@ -28,7 +28,7 @@ services:
     build:
       context: ../
       dockerfile: docker/Dockerfile-server
-    container_name: p_server
+    container_name: {{project_name}}_server
     entrypoint:
     - ./docker-entrypoint-server.sh
     command: python ../server/manage.py runserver 0.0.0.0:8000
