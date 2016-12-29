@@ -6,3 +6,5 @@ COPY server/requirements /usr/src/app/server/requirements
 COPY docker/docker-entrypoint-server.sh /usr/src/app/docker/
 
 WORKDIR /usr/src/app/docker
+
+RUN chmod +x ./docker-entrypoint-server.sh

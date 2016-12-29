@@ -12,3 +12,5 @@ WORKDIR /usr/src/app/client
 RUN npm install gulp -g
 
 WORKDIR /usr/src/app/docker
+
+RUN chmod +x ./docker-entrypoint-client.sh
