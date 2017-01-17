@@ -7,6 +7,7 @@ var/
 configs/env
 
 client/node_modules/
+client/vendor/
 client/media_root/
 client/static_root/
 client/build/bundle.min.css
