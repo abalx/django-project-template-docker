@@ -10,6 +10,7 @@ COPY docker/docker-entrypoint-client.sh /usr/src/app/docker/
 WORKDIR /usr/src/app/client
 
 RUN npm install gulp -g
+RUN npm install bower -g
 
 WORKDIR /usr/src/app/docker
 
