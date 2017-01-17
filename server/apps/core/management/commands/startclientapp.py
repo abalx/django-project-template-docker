@@ -7,7 +7,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 def try_import_app(app_name):
     try:
-        import_module(app_name)
+        import_module('apps.{}'.format(app_name))
     except ImportError:
         message = "The application '{}' doesn't exist"
         message = message.format(app_name)
