@@ -8,7 +8,7 @@ SERVER_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
 CLIENT_DIR = os.path.normpath(os.path.join(ROOT_DIR, 'client'))
 CLIENT_APPS_DIR = os.path.normpath(os.path.join(CLIENT_DIR, 'apps'))
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 INSTALLED_APPS = (
     'django.contrib.admin',
