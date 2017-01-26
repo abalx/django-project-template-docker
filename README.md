@@ -1,4 +1,4 @@
-# django-project-template
+# django-project-template-docker
 
 ## Requirements
 
@@ -13,7 +13,7 @@
 
 `wget -qO- https://get.docker.com/ | sh`
 
-##### Install docker-composee
+##### Install docker-compose
 
 `sudo pip install docker-compose`
 
@@ -25,19 +25,15 @@
     
 ##### 2. Set environment
 
-`cp configs/env.template configs/env`
+`cp configs/env.template docker/.env`
 
-`vim configs/env`
+`vim docker/.env`
     
 ##### 3. Run project for development
 
 `docker-compose -f docker/docker-compose.yml up`
 
-or
-
-##### 3. Run project for production
-
-`docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up`
+That's it. By default the project is available at `0.0.0.0:8000`
 
 ## Client
 #### Description

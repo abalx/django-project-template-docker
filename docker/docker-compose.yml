@@ -3,7 +3,7 @@ version: '2'
 services:
   db:
     env_file:
-    - ../configs/env
+    - ./.env
     image: postgres:latest
     container_name: {{ project_name }}_db
     ports:
@@ -20,7 +20,7 @@ services:
     - ./docker-entrypoint-client.sh
     command: gulp --gulpfile=../client/gulpfile.js
     env_file:
-    - ../configs/env
+    - ./.env
     volumes:
     - ../client/:/usr/src/app/client
 
@@ -33,7 +33,7 @@ services:
     - ./docker-entrypoint-server.sh
     command: python ../server/manage.py runserver 0.0.0.0:8000
     env_file:
-    - ../configs/env
+    - ./.env
     volumes:
     - ../server:/usr/src/app/server
     - ../var/logs:/usr/src/app/var/logs
