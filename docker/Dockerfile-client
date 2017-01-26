@@ -1,4 +1,4 @@
-FROM node:6.9.1
+FROM node:6.9.4
 
 COPY client/package.json /usr/src/app/client/
 COPY client/webpack.config.js /usr/src/app/client/
