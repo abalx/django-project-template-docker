@@ -79,6 +79,10 @@ gulp.task('jsDev', function () {
                 },
             }))
         )
+        .on('error', function (error) {
+            console.log(error.message);
+            this.emit('end');
+        })
         .pipe(gulp.dest(config.buildPath));
 });
 
