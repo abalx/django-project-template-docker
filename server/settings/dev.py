@@ -30,10 +30,10 @@ if DEBUG:
         'debug_toolbar.panels.logging.LoggingPanel',
         'debug_toolbar.panels.redirects.RedirectsPanel',
     )
-    MIDDLEWARE_CLASSES = (
-        (MIDDLEWARE_CLASSES[0],) +
+    MIDDLEWARE = (
+        (MIDDLEWARE[0],) +
         ('debug_toolbar.middleware.DebugToolbarMiddleware',) +
-        MIDDLEWARE_CLASSES[1:]
+        MIDDLEWARE[1:]
     )
 
 CACHES = {
