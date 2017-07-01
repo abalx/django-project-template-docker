@@ -36,7 +36,11 @@ DATABASES = {
      }
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '0.0.0.0',
+
+]
 
 SITE_ID = 1
 
